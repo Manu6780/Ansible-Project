@@ -94,7 +94,6 @@
         subnet_id: "{{PubSub1.subnet.id}}"
         wait: yes
         if_exist_do_not_create: true
-
       register: NatOut
     - name: Set up Public subnet route table
       ec2_vpc_route_table:
