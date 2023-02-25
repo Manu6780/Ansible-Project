@@ -85,6 +85,8 @@
           - dest: 0.0.0.0/0
             gateway_id: "{{igwout.gateway_id}}"
       register: PubSubRT
+      resource_tags:
+        Name: PubSubRT
 
 
 
