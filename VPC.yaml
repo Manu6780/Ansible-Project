@@ -81,12 +81,13 @@
         subnets:
           - "{{PubSub1.subnet.id}}"
           - "{{PubSub2.subnet.id}}"
+        resource_tags:
+          Name: PubSubRT
         routes:
           - dest: 0.0.0.0/0
             gateway_id: "{{igwout.gateway_id}}"
       register: PubSubRT
-      resource_tags:
-        Name: PubSubRT
+
 
 
 
