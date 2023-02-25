@@ -87,6 +87,35 @@
           - dest: 0.0.0.0/0
             gateway_id: "{{igwout.gateway_id}}"
       register: PubSubRT
+    - name: Create NAT gateway and allocate Elastic IP
+      ec2_vpc_nat_gateway:
+        state: "{{state}}"
+        region: "{{region}}"
+        subnet_id: "{{PubSub1.subnet.id}}"
+        wait: yes
+        if_exist_do_not_create: true
+        resource_tags:
+          Name: PersonalNat
+      register: NatOut
+    - name: Set up Public subnet route table
+      ec2_vpc_route_table:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+        subnets:
+          - "{{PrivSub1.subnet.id}}"
+          - "{{PrivSub2.subnet.id}}"
+        resource_tags:
+          Name: PrivSubRT
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{NatOut.nat_gateway_id}}"
+      register: PrivSubRT
+
+
+
+
+
 
 
 
