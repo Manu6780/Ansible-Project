@@ -45,6 +45,7 @@
           Name: "Bastion_host"
           Project: vprofile
         group_id: "{{bastionsg.group_id}}"
+        vpc_subnet_id: "{{pubsub1id}}"
       register: bastionhost
 
 
