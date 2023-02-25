@@ -2,7 +2,18 @@
   connection: local
   gather_facts: False
 
-- tasks:
-    - include: VPC_vars
-      ec2_vpc:
-      region:
+  tasks:
+    - name: Import Variables
+      include_vars: Vars/VPC_vars
+
+    - name: create vpc
+      ec2_vpc_net:
+        name: "{{vpc_name}}"
+        cidr_block: "{{vpcCIDR}}"
+        region: "{{region}}"
+        dns_support: yes
+        dns_hostnames: yes
+        state: "{{state}}"
+      register: vpcout
+    - debug:
+        vars: vpcout
