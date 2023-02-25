@@ -1,0 +1,10 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Import VPC setup Variable
+      include_vars: vars/output
+    - name: Import Bastion Variable
+      include_vars: vars/Bastion_vars
+
+
