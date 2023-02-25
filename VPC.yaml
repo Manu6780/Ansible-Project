@@ -26,7 +26,7 @@
         state: "{{state}}"
         cidr: "{{pub1CIDR}}"
         map_public: yes
-        resources_tags:
+        resource_tags:
           Name: PubSub1
       register: PubSub1
 
