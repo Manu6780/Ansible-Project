@@ -30,6 +30,8 @@
             cidr_ip: "{{myip}}"
       register: bastionsg
     - name: creating Bastion host
+      vars:
+        ansible_python_interpreter: /usr/bin/python3
       ec2:
         key_name: bastionkey
         region: "{{region}}"
