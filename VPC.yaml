@@ -73,4 +73,19 @@
         resource_tags:
           Name: IGW
       register: igwout
+    - name: Set up Public subnet route table
+      ec2_vpc_route_table:
+        vpc_id: "{{vpcout.vpc.id}}"
+        region: "{{region}}"
+        state: "{{state}}"
+        subnets:
+          - "{{PubSub1.subnet.id}}"
+          - "{{PubSub2.subnet.id}}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{igwout.gateway_id}}"
+      register: PubSubRT
+
+
+
 
