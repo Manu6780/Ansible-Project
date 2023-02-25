@@ -1,0 +1,5 @@
+Bastion_ami: ami-09cd747c78a9add63
+
+region: us-east-1
+
+myip: 0.0.0.0/0
