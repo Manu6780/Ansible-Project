@@ -129,8 +129,8 @@
         pubsub2id: "{{PubSub2.subnet.id}}"
         igwid: "{{igwout.gateway_id}}"
         Natid: "{{NatOut.nat_gateway_id}}"
-  #      pubRTid: "{{PubSubRT.route_table.id}}"
-  #      privRTid: "{{PrivSub2.route_table.id}}"
+        pubRTid: "{{PubSubRT.route_table.id}}"
+        privRTid: "{{PrivSub2.route_table.id}}"
         cacheble: yes
    # - name: create varible file for VPC
    #   copy:
