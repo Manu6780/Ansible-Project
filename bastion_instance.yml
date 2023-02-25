@@ -28,7 +28,7 @@
             from_port: 22
             to_port: 22
             cidr_ip: "{{myip}}"
-        register: bastionsg
+      register: bastionsg
     - name: creating Bastion host
       ec2:
         key_name: bastionkey
