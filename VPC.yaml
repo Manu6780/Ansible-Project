@@ -109,6 +109,19 @@
           - dest: 0.0.0.0/0
             gateway_id: "{{NatOut.nat_gateway_id}}"
       register: PrivSubRT
+    - debug:
+        var: "{{item}}"
+      loop:
+        - vpcout.vpc.id
+        - PrivSub2.subnet.id
+        - PrivSub1.subnet.id
+        - PubSub1.subnet.id
+        - PubSub2.subnet.id
+        - igwout.gateway_id
+        - NatOut.nat_gateway_id
+        - PubSubRT.route_table.id
+        - PrivSub2.route_table.id
+
 
 
 
