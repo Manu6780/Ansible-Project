@@ -95,7 +95,7 @@
         wait: yes
         if_exist_do_not_create: true
       register: NatOut
-    - name: Set up Public subnet route table
+    - name: Set up Priv subnet route table
       ec2_vpc_route_table:
         vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
@@ -120,7 +120,7 @@
         - igwout.gateway_id
         - NatOut.nat_gateway_id
         - PubSubRT.route_table.id
-        - PrivSub2.route_table.id
+        - PrivSubRT.route_table.id
     - set_fact:
         vpcid: "{{vpcout.vpc.id}}"
         privsub2id: "{{PrivSub2.subnet.id}}"
@@ -130,12 +130,12 @@
         igwid: "{{igwout.gateway_id}}"
         Natid: "{{NatOut.nat_gateway_id}}"
         pubRTid: "{{PubSubRT.route_table.id}}"
-        privRTid: "{{PrivSub2.route_table.id}}"
+        privRTid: "{{PrivSubRT.route_table.id}}"
         cacheble: yes
-   # - name: create varible file for VPC
-   #   copy:
-   #     content: "vpcid: {{vpcout.vpc.id}}\nprivsub2id: {{PrivSub2.subnet.id}}\nprivsub1id: {{PrivSub1.subnet.id}}\npubsub1id: {{PubSub1.subnet.id}}\npubsub2id: {{PubSub2.subnet.id}}\nigwid: {{igwout.gateway_id}}\nNatid: {{NatOut.nat_gateway_id}}\npubRTid: {{PubSubRT.route_table.id}}\nprivRTid: {{PrivSub2.route_table.id}}"
-   #     dest: Vars/output
+    - name: create varible file for VPC
+      copy:
+        content: "vpcid: {{vpcout.vpc.id}}\nprivsub2id: {{PrivSub2.subnet.id}}\nprivsub1id: {{PrivSub1.subnet.id}}\npubsub1id: {{PubSub1.subnet.id}}\npubsub2id: {{PubSub2.subnet.id}}\nigwid: {{igwout.gateway_id}}\nNatid: {{NatOut.nat_gateway_id}}\npubRTid: {{PubSubRT.route_table.id}}\nprivRTid: {{PrivSubRT.route_table.id}}"
+        dest: Vars/output
 
 
 
