@@ -89,7 +89,7 @@
       register: PubSubRT
     - name: Create NAT gateway and allocate Elastic IP
       ec2_vpc_nat_gateway:
-        state: "{{state}}"
+        vpc_id: "{{vpcout.vpc.id}}"
         region: "{{region}}"
         subnet_id: "{{PubSub1.subnet.id}}"
         wait: yes
