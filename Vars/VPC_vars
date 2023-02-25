@@ -1,7 +1,7 @@
 vpc_name: ManzoorPriv
 vpcCIDR: 172.16.0.1/16
-priv1CIDR: 172.16.1.0/24
-priv2CIDR: 172.16.2.0/24
+priv1CIDR: 172.16.3.0/24
+priv2CIDR: 172.16.4.0/24
 pub1CIDR: 172.16.1.0/24
 pub2CIDR: 172.16.2.0/24
 
