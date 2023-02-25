@@ -15,5 +15,4 @@
         dns_hostnames: yes
         state: "{{state}}"
       register: vpcout
-    - debug:
-        vars: vpcout
+
