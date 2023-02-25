@@ -3,9 +3,9 @@
   gather_facts: no
   tasks:
     - name: Import VPC setup Variable
-      include_vars: vars/output
+      include_vars: Vars/output
     - name: Import Bastion Variable
-      include_vars: vars/Bastion_vars
+      include_vars: Vars/Bastion_vars
     - name: create key pair
       ec2_key:
         name: bastionkey
