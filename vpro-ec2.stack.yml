@@ -27,7 +27,7 @@
         description: allow port 80 from anywhere
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
-        rules:
+        rule:
           - proto: tcp
             from_port: 80
             to_port: 80
