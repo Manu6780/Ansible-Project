@@ -1,8 +1,0 @@
-vpcid: vpc-0c5a1c78e445aa902
-privsub2id: subnet-00f1e736e784f8439
-privsub1id: subnet-0a7ba9c7950f3009f
-pubsub1id: subnet-08e079e9f5cd4f0e3
-pubsub2id: subnet-01df2e465572b1a55
-igwid: igw-090ee0fc6e28dbe2d
-Natid: nat-02d309906db0497b2
-pubRTid: rtb-0e3d2c27f21f6bbff
