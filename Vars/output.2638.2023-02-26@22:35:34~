@@ -6,6 +6,3 @@ pubsub2id: subnet-01df2e465572b1a55
 igwid: igw-090ee0fc6e28dbe2d
 Natid: nat-02d309906db0497b2
 pubRTid: rtb-0e3d2c27f21f6bbff
-# BEGIN ANSIBLE MANAGED BLOCK
-BastionSGID: "sg-0e1d8bce9fae0fa31"
-# END ANSIBLE MANAGED BLOCK
