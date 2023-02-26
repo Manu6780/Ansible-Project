@@ -11,3 +11,9 @@ zone2: us-east-1b
 region: us-east-1
 
 state: present
+
+Bastion_ami: ami-09cd747c78a9add63
+
+
+
+myip: 0.0.0.0/0
