@@ -21,6 +21,36 @@
         dest: "./vprostack.pem"
         mode: 0600
       when: keyout.changed
+    - name: Create security group for lb
+      ec2_group:
+        name: Vprolb-sg
+        description: allow port 80 from anywhere
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+      register: Vprolb-sg_out
 
 
+    - name: Create security group for vprofile stack
+      ec2_group:
+        name: Vprostack-sg
+        description: allow port 80 from anywhere
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        purge_rules: no
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            group_id: "{{Vprolb-sg_out.group_id}}"
+
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            group_id: "{{BastionSGID}}"
+      register: Vprostack-sg_out
 
