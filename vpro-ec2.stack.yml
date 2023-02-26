@@ -27,12 +27,12 @@
         description: allow port 80 from anywhere
         region: "{{region}}"
         vpc_id: "{{vpcid}}"
-        rule:
+        rules:
           - proto: tcp
             from_port: 80
             to_port: 80
             cidr_ip: 0.0.0.0/0
-      register: Vprolb-sg_out
+      register: Vprolb-sgout
 
 
     - name: Create security group for vprofile stack
@@ -46,13 +46,13 @@
           - proto: tcp
             from_port: 80
             to_port: 80
-            group_id: "{{Vprolb-sg_out.group_id}}"
+            group_id: "{{Vprolb-sgout.group_id}}"
 
           - proto: tcp
             from_port: 22
             to_port: 22
             group_id: "{{BastionSGID}}"
-      register: Vprostack-sg_out
+      register: Vprostack-sgout
     - name: Create security group for vprofile stack
       ec2_group:
         name: Vprostack-sg
@@ -62,6 +62,6 @@
         purge_rules: no
         rules:
           - proto: all
-            group_id: "{{Vprostack-sg_out.group_id}}"
+            group_id: "{{Vprostack-sgout.group_id}}"
 
 
