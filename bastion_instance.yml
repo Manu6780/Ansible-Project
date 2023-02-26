@@ -5,7 +5,7 @@
     - name: Import VPC setup Variable
       include_vars: Vars/output
     - name: Import Bastion Variable
-      include_vars: Vars/Bastion_vars
+      include_vars: Vars/VPC_vars
     - name: create key pair
       ec2_key:
         name: bastionkey
