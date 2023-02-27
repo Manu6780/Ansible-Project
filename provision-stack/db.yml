@@ -2,6 +2,7 @@
   hosts: dbsrvrgrp
   gather_facts: no
   tasks:
+
     - name: Installing Mysql Service and dependencies
       package:
         name: "{{item}}"
