@@ -1,10 +1,9 @@
 upstream vproapp {
  server app01:8080;
- }
-
- server {
+}
+server {
   listen 80;
-  location / {
-   proxy_pass http://vproapp;
-   }
-   }
+location / {
+  proxy_pass http://vproapp;
+}
+

@@ -135,7 +135,7 @@
         dest: /usr/local/tomcat8/webapps/ROOT/WEB-INF/classes/application.properties
         force: yes
       notify:
-        restart tomcat8
+        - restart tomcat8
       tags:
         - deploy
   handlers:
