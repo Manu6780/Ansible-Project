@@ -1,7 +1,7 @@
 - hosts: all
   tasks:
     - name: Import VPC variables
-      include_vars: group_wars/hostsip
+      include_vars: group_vars/hostsip
     - name: update hosts file for all the hosts
       blockinfile:
         path: /etc/hosts
