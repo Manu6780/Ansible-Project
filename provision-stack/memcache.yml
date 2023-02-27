@@ -25,7 +25,7 @@
       notify:
         - restart memcached
   handlers:
-    - name: restart memcahed
+    - name: restart memcached
       service:
         name: memcached
         state: restarted
