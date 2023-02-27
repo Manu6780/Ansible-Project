@@ -21,7 +21,7 @@
       tags:
         - package
     - apt_repository:
-        repo: deb https://dl.bintray.com/rabbitmq/debian bionic main
+        repo: deb https://packages.erlang-solutions.com/ubuntu bionic contrib
         state: present
       tags:
          -package
