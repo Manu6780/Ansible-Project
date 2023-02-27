@@ -1,0 +1,10 @@
+---
+- import_playbook: build.yml
+- import_playbook: set_host_ip_map.yml
+- import_playbook: db.yml
+- import_playbook: dbdeploy.yml
+- import_playbook: memcache.yml
+- import_playbook: rabbitmq.yml
+- import_playbook: appserver.yml
+- import_playbook: web.yml
+
