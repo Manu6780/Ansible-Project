@@ -107,7 +107,7 @@
               tags:
                 - deploy
           rescue:
-            - shell: cp -r old_ROOT ROOT
+            - shell: cp -r ROOT old_ROOT
               args:
                 chdir: /usr/local/tomcat8/webapps/
 
