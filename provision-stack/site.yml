@@ -5,6 +5,6 @@
 - import_playbook: dbdeploy.yml
 - import_playbook: memcache.yml
 - import_playbook: rabbitmq.yml
-- import_playbook: appserver.yml
+- import_playbook: appsrvr.yml
 - import_playbook: web.yml
 
