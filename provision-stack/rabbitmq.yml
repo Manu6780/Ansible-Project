@@ -60,7 +60,7 @@
         - restart rmq
       tags:
         - conf
-    - name: Enables the rabbitmq_managment plugin
+    - name: Enables the rabbitmq_managment plugins
       rabbitmq_plugin:
         name: rabbitmq_management
         state: enabled
