@@ -134,7 +134,7 @@
         cacheble: yes
     - name: create varible file for VPC
       copy:
-        content: "vpcid: {{vpcout.vpc.id}}\nprivsub2id: {{PrivSub2.subnet.id}}\nprivsub1id: {{PrivSub1.subnet.id}}\npubsub1id: {{PubSub1.subnet.id}}\npubsub2id: {{PubSub2.subnet.id}}\nigwid: {{igwout.gateway_id}}\nNatid: {{NatOut.nat_gateway_id}}\npubRTid: {{PubSubRT.route_table.id}}\nprivRTid: {{PrivSubRT.route_table.id}}"
+        content: "region: {{region}}\nvpcid: {{vpcout.vpc.id}}\nprivsub2id: {{PrivSub2.subnet.id}}\nprivsub1id: {{PrivSub1.subnet.id}}\npubsub1id: {{PubSub1.subnet.id}}\npubsub2id: {{PubSub2.subnet.id}}\nigwid: {{igwout.gateway_id}}\nNatid: {{NatOut.nat_gateway_id}}\npubRTid: {{PubSubRT.route_table.id}}\nprivRTid: {{PrivSubRT.route_table.id}}"
         dest: Vars/output
 
 
