@@ -1,0 +1,84 @@
+- hosts: rmqsrvrgrp
+  gather_facts: no
+  tasks:
+    - name: Install Erlang repo
+      apt:
+        deb: https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb
+      tags:
+        - package
+    - name: add an Erlang Solution key
+      apt_key:
+        url: https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+        state: present
+      tags:
+        -package
+    - name: Install Erlang
+      apt:
+        name: erlang
+        update_cache: yes
+        cache_valid_time: 86400
+        state: present
+      tags:
+        - package
+    - apt_repository:
+        repo: deb https://dl.bintray.com/rabbitmq/debian bionic main
+        state: present
+      tags:
+         -package
+    - name: install Rabbit MQ
+      apt:
+        name: rabbitmq-server
+        state: present
+        update_cache: yes
+      tags:
+        - package
+    - name: start and enable srvc
+      service:
+        name: rabbitmq-server
+        state: started
+        enabled: yes
+      tags:
+        -svc
+    - name: config setup
+      copy:
+        content: |
+          [{rabbit,[{loopback_users,[]}]}].
+        dest: /etc/rabbitmq/rabbitmq.config
+      notify:
+        - restart rmq
+      tags:
+        - conf
+    - rabbitmq_user:
+        user: test
+        password: tes
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
+        tags: administrator
+        state: present
+      notify:
+        - restart rmq
+      tags:
+        - conf
+    - name: Enables the rabbitmq_managment plugin
+      rabbitmq_plugin:
+        name: rabbitmq_managment
+        state: enabled
+      notify:
+        - restart rmq
+      tags:
+        - package
+  handlers:
+    - name: restart rmq
+      service:
+          name: rabbitmq-server
+          state: restarted
+
+
+
+
+
+
+
+
+
