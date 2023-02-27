@@ -16,7 +16,7 @@
         state: import
         target: /tmp/db_backup.sql
       notify:
-        -restart mysql
+        - restart mysql
       tags:
         - deploy
   handlers:
