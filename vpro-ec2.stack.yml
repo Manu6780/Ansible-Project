@@ -186,10 +186,12 @@
           rm101_ip: {{rm101_out.tagged_instances[0].id}}
           mem01_ip: {{mem01_out.tagged_instances[0].id}}
           db01_ip: {{db01_out.tagged_instances[0].id}}
+
     - name: copy login key to provision-stack
-      src: vprostack.pem
-      dest: provision-stack/vprostack.pem
-      mode: 0400
+      copy:
+         src: vprostack.pem
+         dest: provision-stack/vprostack.pem
+         mode: 0400
     - name: Insert/Update Inventory file provison-stack
       blockinfile:
           path: provision-stack/inventory-vpro
