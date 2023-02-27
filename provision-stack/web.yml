@@ -34,7 +34,7 @@
         dest: /etc/nginx/sites-enabled/vproapp
         state: link
       notify:
-        restart nginx
+          - restart nginx
   handlers:
     - name: restart nginx
       service:
