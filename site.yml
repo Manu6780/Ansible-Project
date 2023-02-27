@@ -1,3 +1,0 @@
----
-- import_playbook: VPC.yaml
-- import_playbook: bastion_instance.yml
