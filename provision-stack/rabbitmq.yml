@@ -62,7 +62,7 @@
         - conf
     - name: Enables the rabbitmq_managment plugin
       rabbitmq_plugin:
-        name: rabbitmq_managment
+        name: rabbitmq_management
         state: enabled
       notify:
         - restart rmq
