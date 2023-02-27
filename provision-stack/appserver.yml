@@ -90,7 +90,7 @@
           file:
             path: "{{item}}"
             state: absent
-          when: archive.info.changed
+          when: archive_info.changed
           loop:
             - /usr/local/tomcat/webapps/ROOT
             - /usr/local/tomcat/webapps/ROOT.war
