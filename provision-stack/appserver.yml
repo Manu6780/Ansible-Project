@@ -126,7 +126,7 @@
         - deploy
     - name: wait untill ROOT.war is extracted to ROOT directory
       wait_for:
-        path: /usr/local/tomcat8/webapps/ROOT
+        path: /usr/local/tomcat8/webapps/ROOT/WEB-INF/classes
       tags:
         - deploy
     - name: Deploy web configuration
