@@ -324,3 +324,105 @@ The offending line appears to be:
 =======
 ^ here
 
+2023-02-27 15:47:05,978 p=53450 u=ubuntu n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  could not find expected ':'
+
+The error appears to be in '/home/ubuntu/Ansible-Project/provision-stack/web.yml': line 39, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+          - restart nginx
+=======
+^ here
+
+2023-02-27 15:50:58,776 p=53468 u=ubuntu n=ansible | PLAY [websrvrgrp] ****************************************************************************************************************************************************************************
+2023-02-27 15:50:58,788 p=53468 u=ubuntu n=ansible | TASK [Install Nginx] *************************************************************************************************************************************************************************
+2023-02-27 15:51:05,823 p=53468 u=ubuntu n=ansible | changed: [web01]
+2023-02-27 15:51:05,830 p=53468 u=ubuntu n=ansible | TASK [start and Enable] **********************************************************************************************************************************************************************
+2023-02-27 15:51:07,369 p=53468 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 15:51:07,376 p=53468 u=ubuntu n=ansible | TASK [Disable Nginx Default website] *********************************************************************************************************************************************************
+2023-02-27 15:51:07,812 p=53468 u=ubuntu n=ansible | changed: [web01]
+2023-02-27 15:51:07,819 p=53468 u=ubuntu n=ansible | TASK [Deploy web config file] ****************************************************************************************************************************************************************
+2023-02-27 15:51:08,668 p=53468 u=ubuntu n=ansible | changed: [web01]
+2023-02-27 15:51:08,674 p=53468 u=ubuntu n=ansible | TASK [Enable Vproapp] ************************************************************************************************************************************************************************
+2023-02-27 15:51:08,966 p=53468 u=ubuntu n=ansible | changed: [web01]
+2023-02-27 15:51:08,972 p=53468 u=ubuntu n=ansible | RUNNING HANDLER [restart nginx] **************************************************************************************************************************************************************
+2023-02-27 15:51:09,950 p=53468 u=ubuntu n=ansible | fatal: [web01]: FAILED! => {"changed": false, "msg": "Unable to restart service nginx: Job for nginx.service failed because the control process exited with error code.\nSee \"systemctl status nginx.service\" and \"journalctl -xe\" for details.\n"}
+2023-02-27 15:51:09,951 p=53468 u=ubuntu n=ansible | NO MORE HOSTS LEFT ***************************************************************************************************************************************************************************
+2023-02-27 15:51:09,954 p=53468 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2023-02-27 15:51:09,954 p=53468 u=ubuntu n=ansible | web01                      : ok=5    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:10:59,972 p=54142 u=ubuntu n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2023-02-27 16:10:59,981 p=54142 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2023-02-27 16:11:01,981 p=54142 u=ubuntu n=ansible | ok: [app01]
+2023-02-27 16:11:02,083 p=54142 u=ubuntu n=ansible | ok: [cntl]
+2023-02-27 16:11:02,132 p=54142 u=ubuntu n=ansible | ok: [mem01]
+2023-02-27 16:11:02,636 p=54142 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:11:02,677 p=54142 u=ubuntu n=ansible | ok: [rmq01]
+2023-02-27 16:11:04,502 p=54142 u=ubuntu n=ansible | ok: [db01]
+2023-02-27 16:11:04,519 p=54142 u=ubuntu n=ansible | TASK [Import VPC variables] ******************************************************************************************************************************************************************
+2023-02-27 16:11:04,572 p=54142 u=ubuntu n=ansible | ok: [cntl]
+2023-02-27 16:11:04,593 p=54142 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:11:04,617 p=54142 u=ubuntu n=ansible | ok: [app01]
+2023-02-27 16:11:04,637 p=54142 u=ubuntu n=ansible | ok: [rmq01]
+2023-02-27 16:11:04,638 p=54142 u=ubuntu n=ansible | ok: [mem01]
+2023-02-27 16:11:04,648 p=54142 u=ubuntu n=ansible | ok: [db01]
+2023-02-27 16:11:04,657 p=54142 u=ubuntu n=ansible | TASK [update hosts file for all the hosts] ***************************************************************************************************************************************************
+2023-02-27 16:11:05,469 p=54142 u=ubuntu n=ansible | changed: [app01]
+2023-02-27 16:11:05,470 p=54142 u=ubuntu n=ansible | changed: [rmq01]
+2023-02-27 16:11:05,471 p=54142 u=ubuntu n=ansible | changed: [web01]
+2023-02-27 16:11:05,471 p=54142 u=ubuntu n=ansible | changed: [mem01]
+2023-02-27 16:11:05,534 p=54142 u=ubuntu n=ansible | changed: [cntl]
+2023-02-27 16:11:05,784 p=54142 u=ubuntu n=ansible | changed: [db01]
+2023-02-27 16:11:05,802 p=54142 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2023-02-27 16:11:05,802 p=54142 u=ubuntu n=ansible | app01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:11:05,802 p=54142 u=ubuntu n=ansible | cntl                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:11:05,803 p=54142 u=ubuntu n=ansible | db01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:11:05,803 p=54142 u=ubuntu n=ansible | mem01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:11:05,803 p=54142 u=ubuntu n=ansible | rmq01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:11:05,803 p=54142 u=ubuntu n=ansible | web01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:20:16,888 p=1304 u=ubuntu n=ansible | PLAY [all] ***********************************************************************************************************************************************************************************
+2023-02-27 16:20:16,909 p=1304 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************************************************************************************
+2023-02-27 16:20:18,876 p=1304 u=ubuntu n=ansible | ok: [cntl]
+2023-02-27 16:20:19,180 p=1304 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:19,293 p=1304 u=ubuntu n=ansible | ok: [app01]
+2023-02-27 16:20:19,793 p=1304 u=ubuntu n=ansible | ok: [rmq01]
+2023-02-27 16:20:20,171 p=1304 u=ubuntu n=ansible | ok: [mem01]
+2023-02-27 16:20:21,008 p=1304 u=ubuntu n=ansible | ok: [db01]
+2023-02-27 16:20:21,026 p=1304 u=ubuntu n=ansible | TASK [Import VPC variables] ******************************************************************************************************************************************************************
+2023-02-27 16:20:21,079 p=1304 u=ubuntu n=ansible | ok: [cntl]
+2023-02-27 16:20:21,103 p=1304 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:21,124 p=1304 u=ubuntu n=ansible | ok: [app01]
+2023-02-27 16:20:21,148 p=1304 u=ubuntu n=ansible | ok: [rmq01]
+2023-02-27 16:20:21,149 p=1304 u=ubuntu n=ansible | ok: [mem01]
+2023-02-27 16:20:21,159 p=1304 u=ubuntu n=ansible | ok: [db01]
+2023-02-27 16:20:21,168 p=1304 u=ubuntu n=ansible | TASK [update hosts file for all the hosts] ***************************************************************************************************************************************************
+2023-02-27 16:20:21,987 p=1304 u=ubuntu n=ansible | ok: [rmq01]
+2023-02-27 16:20:21,992 p=1304 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:21,992 p=1304 u=ubuntu n=ansible | ok: [app01]
+2023-02-27 16:20:21,995 p=1304 u=ubuntu n=ansible | ok: [mem01]
+2023-02-27 16:20:22,073 p=1304 u=ubuntu n=ansible | ok: [cntl]
+2023-02-27 16:20:22,319 p=1304 u=ubuntu n=ansible | ok: [db01]
+2023-02-27 16:20:22,337 p=1304 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2023-02-27 16:20:22,337 p=1304 u=ubuntu n=ansible | app01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:20:22,337 p=1304 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:20:22,338 p=1304 u=ubuntu n=ansible | db01                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:20:22,338 p=1304 u=ubuntu n=ansible | mem01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:20:22,338 p=1304 u=ubuntu n=ansible | rmq01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:20:22,339 p=1304 u=ubuntu n=ansible | web01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-02-27 16:20:53,107 p=1557 u=ubuntu n=ansible | PLAY [websrvrgrp] ****************************************************************************************************************************************************************************
+2023-02-27 16:20:53,120 p=1557 u=ubuntu n=ansible | TASK [Install Nginx] *************************************************************************************************************************************************************************
+2023-02-27 16:20:54,775 p=1557 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:54,782 p=1557 u=ubuntu n=ansible | TASK [start and Enable] **********************************************************************************************************************************************************************
+2023-02-27 16:20:56,296 p=1557 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:56,302 p=1557 u=ubuntu n=ansible | TASK [Disable Nginx Default website] *********************************************************************************************************************************************************
+2023-02-27 16:20:56,736 p=1557 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:56,744 p=1557 u=ubuntu n=ansible | TASK [Deploy web config file] ****************************************************************************************************************************************************************
+2023-02-27 16:20:57,613 p=1557 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:57,619 p=1557 u=ubuntu n=ansible | TASK [Enable Vproapp] ************************************************************************************************************************************************************************
+2023-02-27 16:20:57,913 p=1557 u=ubuntu n=ansible | ok: [web01]
+2023-02-27 16:20:57,923 p=1557 u=ubuntu n=ansible | PLAY RECAP ***********************************************************************************************************************************************************************************
+2023-02-27 16:20:57,923 p=1557 u=ubuntu n=ansible | web01                      : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
