@@ -198,7 +198,7 @@
           block: |
             web01 ansible_host={{web01_out.tagged_instances[0].id}}
             app01 ansible_host={{app01_out.tagged_instances[0].id}}
-            rmq01 ansible_host={{rm101_out.tagged_instances[0].id}}
+            rmq01 ansible_host={{rmq01_out.tagged_instances[0].id}}
             mem01 ansible_host={{mem01_out.tagged_instances[0].id}}
             db01  ansible_host={{mem01_out.tagged_instances[0].id}}
             cntl  ansible_host=127.0.0.1 ansible_connection=local
